@@ -1,0 +1,52 @@
+DELETE http://127.0.0.1:8000/api/todo/6/
+Authorization: Token ede802504869f09cd46c731f9cea2a054b56dc66
+
+
+###
+GET http://127.0.0.1:8000/api/todo/1/ HTTP/1.1
+Accept: application/json
+Authorization: Token ede802504869f09cd46c731f9cea2a054b56dc66
+
+###
+POST http://127.0.0.1:8000/api/todo/ HTTP/1.1
+Content-Type: application/json
+Authorization: Token ede802504869f09cd46c731f9cea2a054b56dc66
+
+{
+  "title": "Privet",
+  "text": "Lol",
+  "deadline": "2021-10-10"
+}
+
+
+###
+
+
+
+GET http://127.0.0.1:8000/api/todo/ HTTP/1.1
+Accept: application/json
+Authorization: Token ede802504869f09cd46c731f9cea2a054b56dc66
+
+###
+# @name RestToken
+POST http://127.0.0.1:8000/dj-rest-auth/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "alexey.khen@nu.edu.kz",
+  "password": "070795khen"
+}
+
+###
+### registration
+POST http://127.0.0.1:8000/dj-rest-auth/registration/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password1": "070795khen",
+  "password2": "070795khen",
+  "email": "alexey.khen@nu.edu.kz"
+}
+
+
