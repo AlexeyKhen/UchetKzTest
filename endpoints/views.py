@@ -5,6 +5,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.views import APIView
 from .tasks import sending_mail
 from .models import Todo
+from decouple import config
 from .serializers import TodoSerializer
 
 permission = [IsAuthenticated]

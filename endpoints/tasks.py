@@ -6,7 +6,8 @@ from django.core.mail import send_mail
 def sending_mail(mail, done):
     if done:
         message = 'You marked your task as completed'
-    message = 'You marked your task as uncompleted'
+    else:
+        message = 'You marked your task as uncompleted'
     send_mail(
         'You changed your task',
         message,

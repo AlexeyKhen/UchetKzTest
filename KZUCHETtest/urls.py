@@ -19,10 +19,10 @@ from endpoints.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', include('django.contrib.auth.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
-    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('accounts/', include('dj_rest_auth.urls')),
+    path('accounts/registration/', include('dj_rest_auth.registration.urls')),
     path('api/todo/', TodoView.as_view(), name='TodoApiListView'),
     path('api/todo/<int:pk>/', DetailedView.as_view(), name='DetailedView'),
     path('api/todo/<int:pk>/executed/', Executed.as_view(), name='Executed'),

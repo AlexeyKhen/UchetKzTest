@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 import os
 
@@ -126,8 +126,8 @@ REST_FRAMEWORK = {
     # ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ]
 }
 # Celery
@@ -137,8 +137,8 @@ CELERY_TASK_SERIALIZER = 'json'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'alexey.khen@gmail.com'
-EMAIL_HOST_PASSWORD = '070795Khen!'
+EMAIL_HOST_USER = config('mail')
+EMAIL_HOST_PASSWORD = config('password')
 EMAIL_USE_TLS = True
 
 # Internationalization
