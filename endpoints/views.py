@@ -32,7 +32,7 @@ class DetailedView(RetrieveUpdateDestroyAPIView):
 
 
 class Executed(APIView):
-    permission_classes = permission
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, pk):
         obj = get_object_or_404(Todo, pk=pk)
@@ -41,6 +41,6 @@ class Executed(APIView):
         obj.save()
         sending_mail.delay(request.user.email, completed)
 
-        if completed:
+        if not completed:
             return HttpResponse('The task was marked as completed, please wait 10 seconds until message comes')
         return HttpResponse("You marked the task as uncompleted please wait 10 seconds until message comes")

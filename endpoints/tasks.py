@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 
 @shared_task
 def sending_mail(mail, done):
-    if done:
+    if not done:
         message = 'You marked your task as completed'
     else:
         message = 'You marked your task as uncompleted'
